@@ -1,3 +1,4 @@
+#!/bin/env bash
 qemu-system-x86_64 \
 -netdev "user,id=eth0" \
 -device "e1000,netdev=eth0" \
