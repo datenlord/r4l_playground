@@ -1,0 +1,6 @@
+{
+	"name": "DatenLord R4L Workshop Demo",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "ghcr.io/myrfy001/datenlord_r4l_workshop:main"
+
+}
