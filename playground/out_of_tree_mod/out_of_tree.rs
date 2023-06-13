@@ -17,7 +17,8 @@ struct RustOutOfTree {
 }
 
 impl kernel::Module for RustOutOfTree {
-    fn init(_module: &'static ThisModule) -> Result<Self> {
+    // Note: The init function's prototype is not the same as that in the main stream.
+    fn init(_name: &'static CStr, _module: &'static ThisModule) -> Result<Self> {
         pr_info!("Rust out-of-tree sample (init)\n");
 
         let mut numbers = Vec::new();

@@ -15,3 +15,5 @@ CONFIG_RUST_OVERFLOW_CHECKS=y
 CONFIG_RUST_BUILD_ASSERT_DENY=y
 # end of Rust hacking
 # end of Kernel hacking
+
+# CONFIG_E1000 is not set
