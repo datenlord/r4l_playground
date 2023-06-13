@@ -52,6 +52,12 @@ RUN apt-get update && \
 
 COPY --from=busybox-prebuild /busybox-1.36.1/rootfs /rootfs/
 COPY patch/kernel_config linux/arch/x86/configs/kernel_config_patch.config
+# Apply some patch to make it easy to generate RA config file. When 
+# https://lore.kernel.org/rust-for-linux/20230121052507.885734-1-varmavinaym@gmail.com/
+# is merged, we can discard this patch.
+COPY patch/rust-analyzer/top_makefile linux/Makefile
+COPY patch/rust-analyzer/rust_makefile linux/rust/Makefile
+COPY patch/rust-analyzer/generate_rust_analyzer.py linux/scripts/generate_rust_analyzer.py
 
 RUN . "$HOME/.cargo/env" && \ 
     cd linux && \
