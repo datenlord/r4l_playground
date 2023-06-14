@@ -1,6 +1,13 @@
 {
 	"name": "DatenLord R4L Playground",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ghcr.io/myrfy001/r4l_playground:main"
-
+	"image": "ghcr.io/myrfy001/r4l_playground:main",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"rust-lang.rust-analyzer",
+				"llvm-vs-code-extensions.vscode-clangd"
+			]
+		}
+	}
 }
