@@ -37,16 +37,16 @@ RUN apt-get update && \
         qemu-system-x86 cpio && \
         rm -rf /var/lib/apt/lists/*
 
-    RUN git clone --depth=1 -b rust-e1000 https://github.com/fujita/linux.git && \
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y && \
-        . "$HOME/.cargo/env" && \
-        cd linux && \
-        rustup override set $(scripts/min-tool-version.sh rustc)  && \
-        rustup component add rust-src  && \
-        cargo install --locked --version $(scripts/min-tool-version.sh bindgen) bindgen   && \
-        rustup component add rustfmt  && \
-        rustup component add clippy   && \
-        make LLVM=1 rustavailable
+RUN git clone --depth=1 -b rust-e1000 https://github.com/fujita/linux.git && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y && \
+    . "$HOME/.cargo/env" && \
+    cd linux && \
+    rustup override set $(scripts/min-tool-version.sh rustc)  && \
+    rustup component add rust-src  && \
+    cargo install --locked --version $(scripts/min-tool-version.sh bindgen) bindgen   && \
+    rustup component add rustfmt  && \
+    rustup component add clippy   && \
+    make LLVM=1 rustavailable
 
 
 
