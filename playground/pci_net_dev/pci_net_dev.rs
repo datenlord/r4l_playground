@@ -71,7 +71,7 @@ impl kernel::Module for E1000KernelMod {
         pr_info!("Rust for linux e1000 driver demo (init)\n");
         let pci_dev = driver::Registration::<pci::Adapter<E1000Drv>>::new_pinned(name, module)?;
 
-        // we need to store `d` into the module struct, otherwise it will be dropped, which 
+        // we need to store `pci_dev` into the module struct, otherwise it will be dropped, which 
         // means the PCI driver will be removed.
         Ok(E1000KernelMod {pci_dev})
     }
